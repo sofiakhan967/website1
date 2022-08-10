@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{%block body%}
+{%block css%}
+<style>
+    h1{
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      color: rgb(174, 0, 255);
+      text-align: center;
+    }
+  </style>
+  {%endblock css%}
+<div class="container">
+    <div class="row">
+      <h1>Contact</h1>
+        <div class="mb-3">
+            <form action="contact" method="post">
+              {%csrf_token%}
+            <label for="exampleFormControlInput1" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Shaikh Ibad">
+          </div><div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" placeholder="name@example.com">
+          </div><div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Contact</label>
+            <input type="number" class="form-control" name="contact" placeholder="0123456789">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Reason For Contacting</label>
+            <textarea class="form-control" name="reason" rows="3"></textarea>
+          </div><div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </form> 
+          </div>
+    </div>
+</div>
+{%endblock body%}

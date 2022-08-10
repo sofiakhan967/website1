@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+{%block body%}
+{%block css%}
+<style>
+    div.card{
+     display: flex;
+     margin: 35px;
+    }
+    h1.heading{
+      text-align: center;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      color: rgb(11, 122, 248);
+    }
+  </style>
+  {%endblock css%}
+
+<div class="container">
+    <div class="row">
+      <h1 class="heading">Daily Technology News</h1>
+        {%for i in page_obj.object_list%}
+        <div class="card" style="width: 18rem;">
+            <img src="{{i.urlToImage}}" class="card-img-top" alt="..." width="200" height="200">
+            <div class="card-body">
+              <h5 class="card-title">{{i.title}}</h5>
+              <p class="card-text">{{i.description | slice:"0:100"}}</p>
+              <a href="{{i.url}}" class="btn btn-primary">Read News</a>
+            </div>
+          </div>
+          {%endfor%}
+    </div>
+    <center>
+      {%if page_obj.has_previous%}
+      <a href="?page={{page_obj.previous_page_number}}"> prev </a>
+      {%endif%}
+      <span>{{page_obj.number}}</span>
+      {%if page_obj.has_next%}
+      <a href="?page={{page_obj.next_page_number}}">next</a>
+      {%endif%}
+    </center>
+</div>
+
+{%endblock%}

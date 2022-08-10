@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+{%block body%}
+{%block css%}
+<style>
+    h3.card-title{
+     font-family:Cursive;
+     text-decoration: underline black;
+     
+     color:red;
+    }
+    h3{
+      font-family:Cursive;
+     text-decoration: underline black;
+     color:red;
+    }
+    p.card-text{
+      font-family: Courier New;
+    }
+    p{
+      font-family: Courier New;
+    }
+    div.card{
+      background-color: cornsilk;
+    }
+    h1{
+      font-family: Bahnschrift SemiBold SemiConden;
+      color:  rgb(174, 0, 255);
+      text-align: center;
+    }
+  </style>
+  {%endblock css%}
+<div class="container">
+    <div class="row">
+        <h1>Project By Shaikh Ibad</h1>
+        <div class="card w-100">
+            <div class="card-body">
+              <h3 class="card-title">About Me</h3>
+              <p class="card-text">Shaikh Ibad is an commerce base student with a passion for programming.
+                He has expertise in web development, Python and django.
+              </p>
+              <h3>
+                My journy of learning programming language
+              </h3>
+              <p>
+                I started with learning html css after learning this, I started javascript and I built one practise project you can view at my github profile after that I started exploring python and django then built personal project using django framework 
+                (About My Personal Project: Blogging website and we used API to fetch news data)
+              </p>
+              <a href="https://github.com/Ibad46" class="btn btn-primary">View My github</a>
+            </div>
+          </div>
+    </div>
+</div>
+{%endblock body%}

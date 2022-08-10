@@ -1,0 +1,124 @@
+{%extends 'base.html'%}
+{%block body%}
+{%block css%}
+<style>
+  div.card{
+    margin: 35px;
+  }
+  small{
+    color: darkgray;
+  }
+  h1.heading{
+    text-align: center;
+    font-family:Bahnschrift SemiBold SemiConden ;
+    color: rgb(174, 0, 255);
+    font-size: 70px;
+    text-decoration: underline ;
+  }
+  h2.sub{
+    text-align: center;
+    font-family:Bahnschrift SemiBold SemiConden ;
+    color:rgb(174, 0, 255) ;
+    font-size: 50px;
+    text-decoration: underline ;
+  }
+  div.page{
+    
+    padding: 50px;
+
+  }
+  a.link{
+    
+    
+    color:white;
+    border-radius:5px;
+    text-decoration:none;
+    
+  }
+  a.link:hover{
+    padding:20px;
+    background-color:black;
+  }
+
+</style>
+{%endblock css%}
+
+<h1 class="heading">Project By Ibad</h1>
+
+<div class="carousel">  
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://s.yimg.com/uu/api/res/1.2/d0R89F7xqnDNiUcTTLWLZg--~B/aD0xMjIwO3c9MjAwMDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2022-06/6efd6ab0-e5d1-11ec-be6c-b2fe04160b9a.cf.jpg" class="d-block w-100" height="600" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h4>MacBook Air M2 hands-on: Bye-bye wedge</h4>
+        <p>Highlights include a new look, TouchID and bigger screen.</p>
+        <a class="link" href="https://www.apple.com/">VISIT APPLE STORE</a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://5.imimg.com/data5/SELLER/Default/2021/1/BX/OQ/PZ/32948513/certified-ethical-hacker-course-500x500.jpg" class="d-block w-100" height="600" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Master Ethical Hacking</h5>
+        <p>The Ultimate Ethical Hacking Certification.</p>
+        <a class="link" href="https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/">Get Certified</a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.trio.dev/hubfs/Imported_Blog_Media/python_logo.jpg" class="d-block w-100" height="600" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Master Python programming language</h5>
+        <p>Python is a programming language that lets you work more quickly and integrate your systems more effectively.</p>
+        <a class="link" href="https://www.python.org">Learn Python</a>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+<h2 class="sub"> Daily Blogs</h2>
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        {%for detail in  page_obj.object_list%}
+    <div class="card" style="width: 18rem;">
+        <img src="media/{{detail.img}}" class="card-img-top" alt="..." width="250" height="250">
+        <div class="card-body">
+          <h5 class="card-title">{{detail.title}}</h5>
+          <small>{{detail.date_added}}</small>
+          <p class="card-text">{{detail.intro | slice:"0:100"}}</p>
+          <a href="blog/{{detail.slug}}" class="btn btn-primary">Read More</a>
+        </div>
+        </div>
+        {%endfor%}
+      </div>
+     <div class="page">
+      <center>
+        {%if page_obj.has_previous%}
+        <a href="?page={{page_obj.previous_page_number}}"> prev </a>
+        {%endif%}
+        <span>{{page_obj.number}}</span>
+        {%if page_obj.has_next%}
+        <a href="?page={{page_obj.next_page_number}}">next</a>
+        {%endif%}
+      </center>
+     </div>
+      {%endblock body%}
+</div>
